@@ -5,6 +5,7 @@ import kz.bitlab.g130springjpa.repository.DeveloperRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -14,7 +15,9 @@ public class DeveloperService {
     private final DeveloperRepository developerRepository;
 
     public List<Developer> getAllDevelopers() {
-        return developerRepository.findAll();
+        return developerRepository.findAll().stream()
+                .sorted(Comparator.comparing(Developer::getId))
+                .toList();
     }
 
     public Developer getDeveloperById(Long id) {

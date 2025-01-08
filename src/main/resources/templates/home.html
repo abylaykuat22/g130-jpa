@@ -30,6 +30,13 @@
                    name="age"
                    class="form-control"
                    placeholder="Insert age..."><br><br>
+            <select name="company.id" class="form-control">
+              <option th:each="company : ${компании}" th:value="${company.id}" th:text="${company.name}"></option>
+            </select>
+            <br><br>
+            <select name="birthCountry.id" class="form-control">
+              <option th:each="country : ${страны}" th:value="${country.id}" th:text="${country.name}"></option>
+            </select>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -45,6 +52,7 @@
       <th>ID</th>
       <th>FULL NAME</th>
       <th>EMAIL</th>
+      <th>COMPANY</th>
       <th>DETAILS</th>
     </tr>
     </thead>
@@ -53,6 +61,7 @@
       <td th:text="${developer.id}"></td>
       <td th:text="${developer.fullName}"></td>
       <td th:text="${developer.email}"></td>
+      <td th:text="${developer.company.name}"></td>
       <td><a th:href="${'/developers/' + developer.id}" class="btn btn-primary">DETAILS</a></td>
     </tr>
     </tbody>

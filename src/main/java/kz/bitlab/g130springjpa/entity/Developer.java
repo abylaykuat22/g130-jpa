@@ -25,4 +25,12 @@ public class Developer {
 
     @Column(name = "AGE")
     private Integer age;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COMPANY_ID")
+    private Company company;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BIRTH_COUNTRY_ID")
+    private Country birthCountry;
 }

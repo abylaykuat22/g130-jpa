@@ -20,6 +20,11 @@
            name="age"
            class="form-control"
            placeholder="Insert age..."><br><br>
+    <select name="company.id" class="form-control">
+      <option th:each="company : ${компании}" th:value="${company.id}" th:text="${company.name}"
+              th:selected="${company.id == developer.company.id}">
+      </option>
+    </select>
     <button type="submit" class="btn btn-primary">Save Developer</button>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#mymodel1">
